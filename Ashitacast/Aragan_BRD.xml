@@ -36,6 +36,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     <command>/bind ^TAB down /sing nitro </command>
     <command>/bind TAB down /sing playlist cycle</command>
     <command>/bind F4 down /autoja</command>
+    <command>/bind F3 down /autodebuffmode</command>
     <command>/bind F7 down /extrasongs</command>
         <command>/bind F6 down /weapons</command>
     <command>/bind F9 down /offense</command>
@@ -60,6 +61,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   <command>/autohastemode init</command>
     <command>/autosambamode init</command>
     <command>/autosongmode init</command>
+    <command>/autodebuffmode init</command>
     <command>/autoja init</command>
     <!-- Defense and Auto Modes -->
     <command>/bind ^F4 down /autodefensemode</command>
@@ -200,6 +202,8 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   <var name="AutoMedicineLock">0</var>
   <var name="AutoTrustMode">Off</var>
   <var name="AutoTrustLock">0</var>
+  <var name="AutoDebuffMode">Off</var>
+  <var name="AutoDebuffLock">0</var>
   <var name="AutoBuffMode">Off</var>
   <var name="AutoBuffLock">0</var>
   <var name="AutoSambaMode">Off</var>
@@ -3835,6 +3839,26 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
 <cmd input="/autosongmode"><command>/autosong</command></cmd>
 <cmd input="/asong_rearm"><setvar name="AutoSongLock" value="0" /></cmd>
 
+<cmd input="/autodebuff init">
+  <setvar name="AutoDebuffMode" value="Off" />
+  <setvar name="AutoDebuffLock" value="0" />
+  <addtochat color="159">[AutoDebuffMode] Off</addtochat>
+</cmd>
+<cmd input="/autodebuff">
+  <if advanced="$AutoDebuffMode=Off">
+    <setvar name="AutoDebuffMode" value="On" />
+    <setvar name="AutoDebuffLock" value="0" />
+    <addtochat color="159">[AutoDebuffMode] On</addtochat>
+  </if>
+  <else>
+    <setvar name="AutoDebuffMode" value="Off" />
+    <setvar name="AutoDebuffLock" value="0" />
+    <addtochat color="159">[AutoDebuffMode] Off</addtochat>
+  </else>
+</cmd>
+<cmd input="/autodebuffmode init"><command>/autodebuff init</command></cmd>
+<cmd input="/autodebuffmode"><command>/autodebuff</command></cmd>
+
 <cmd input="/autoja init">
   <setvar name="AutoJAMode" value="Off" />
   <addtochat color="159">[AutoJA] Off</addtochat>
@@ -5374,6 +5398,21 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
         <if advanced="$AutoTrustLock=0"><command>/trustfill</command></if>
       </if>
     </if>
+  </if>
+  <!-- ===== AUTO DEBUFF SYSTEM ===== -->
+  <!-- Once per engage: Carnage Elegy -> Pining Nocturne (stays On until you toggle it Off) -->
+  <if advanced="$AutoDebuffMode=On">
+    <if p_status="engaged">
+      <if p_ismoving="False">
+        <if advanced="$AutoDebuffLock=0">
+          <setvar name="AutoDebuffLock" value="1" />
+          <command>/ma "Carnage Elegy" &lt;t&gt;</command>
+          <command delay="5200">/ma "Pining Nocturne" &lt;t&gt;</command>
+        </if>
+      </if>
+    </if>
+    <if p_status="idle"><setvar name="AutoDebuffLock" value="0" /></if>
+    <if p_status="resting"><setvar name="AutoDebuffLock" value="0" /></if>
   </if>
   <!-- ===== AUTO NUKE SYSTEM ===== -->
   <!-- Note: AshitaCast doesn't read the real spell recast like GearSwap, so we use a simple throttle here -->
