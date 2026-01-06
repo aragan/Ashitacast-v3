@@ -5,6 +5,7 @@
 **************************************************************
   
   Aragan  [Author Primary]
+  Realesed
   version transformers coming
   ultimate v1
   Ashita v3 ONLY
@@ -16,10 +17,10 @@
 **************************************************************
 
 
-You’re starting from the distant past—where the oldest secrets sleep.
+You’re begin from the past from the distant past—where the oldest secrets sleep.
 Those forgotten truths are surfacing again… and they come from the ancient darkness.
 Now you’re beyond the rules. Above them. Untouchable by them.
-They’ll never understandAnd once you do… it’ll be too late to pretend they didn’t know.
+They’ll never understand And once you do… it’ll be too late to pretend they didn’t know.
 
 
 ==============================================================
@@ -27,12 +28,19 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
 -->
 <ashitacast>
   <settings>
-    <buffupdate>true</buffupdate>
-    <statusupdate>true</statusupdate>
-    <hpupdate>false</hpupdate>
-    <autoupdate>true</autoupdate>
-  </settings>
+		<buffupdate>true</buffupdate><!--Determines if your idlegear will be parsed when you gain/lose a buff. Default: TRUE -->
+		<statusupdate>true</statusupdate><!--Determines if your idlegear will be parsed when you change status(stand/rest/engage/etc).  Default: TRUE -->
+		<hpupdate>false</hpupdate><!--Determines if your idlegear will be parsed when your HP % changes.  Default: TRUE -->
+		<mpupdate>false</mpupdate><!--Determines if your idlegear will be parsed when your MP % changes.  Default: TRUE -->
+		<autoupdate>true</autoupdate><!--Determines if your idlegear will be parsed on outgoing status updates(roughly every 350ms).  Default: TRUE-->
+	</settings>
+  <!-- ====================================================
+  include for other files addon dress me or packer to get equip and item from moogle
+ =========================================================== -->
+      <!-- <include file="" /> -->
+      <!-- <include file="common" /> -->
   <init>
+
     <command>/bind ^TAB down /sing nitro </command>
     <command>/bind TAB down /sing playlist cycle</command>
     <command>/bind F4 down /autoja</command>
@@ -53,7 +61,6 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
 		<command>/bind !F5 down /wsmode</command>
 		<command>/wsmode init</command>
   <command>/bind ^F10 down /autows</command>
-  <command>/bind !F11 down /autowsrestore</command>
   <command>/autows init</command>
   <command>/autowsrestore init</command>
   <command>/autoshadow init</command>
@@ -255,7 +262,15 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   <var name="HolyBloodMode">Off</var>
 </variables>
 <sets>
-
+    <!-- ===== Movement ===== Movement and kiting sets applied while moving or when /kite is On. -->
+    <set name="Kiting">
+      <feet>Fili Cothurnes +2</feet>
+    </set>
+    <set name="HippoMode">
+      <feet>Hippo. Socks +1</feet>
+    </set>
+    <set name="Movement" baseset="Kiting">
+    </set>
     <!-- ===== WEAPONS (edit here) ===== -->
     <set name="weapons_default">
       <main>Twashtar</main>
@@ -313,7 +328,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <main>Twashtar</main>
       <sub>Centovente</sub>
     </set>
-        <set name="washtarCrepuscular">
+        <set name="TwashtarCrepuscular">
       <main>Twashtar</main>
       <sub>Crepuscular Knife</sub>
     </set>
@@ -473,15 +488,6 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     </set>
     <set name="DefaultShield">
       <sub>Genmei Shield</sub>
-    </set>
-    <!-- ===== Movement ===== Movement and kiting sets applied while moving or when /kite is On. -->
-    <set name="Kiting">
-      <feet>Fili Cothurnes +2</feet>
-    </set>
-    <set name="HippoMode">
-      <feet>Hippo. Socks +1</feet>
-    </set>
-    <set name="Movement" baseset="Kiting">
     </set>
 <set name="MaxTP">
       <ear1>Ishvara Earring</ear1>
@@ -859,6 +865,14 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Moonlight Ring</ring2>
       <back>Null Shawl</back>
     </set>
+
+    <!-- ===== DW HASTE SUFFIX GUIDE =====
+         *_LowHaste  : (74% Dual Wield needed)
+         *_MidHaste  : (67% Dual Wield needed)
+         *_HighHaste : (56% Dual Wield needed)
+         *_MaxHaste  : (36% Dual Wield needed)
+         (/DNC gives 15 /NIN gives 25)
+    -->
     <set name="engaged_DW_Acc_DT25_HighHaste">
       <range>Linos</range>
       <head>Blistering Sallet +1</head><body>Ashera Harness</body>
@@ -2117,7 +2131,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Stikini Ring +1</ring2>
       <back>Intarabus's Cape</back>
     </set>
-    <set name="midcast__Army_s_Paeon__">
+    <set name="Army_s_Paeon">
       <main>Carnwenhan</main>
       <range>info.ExtraSongInstrument</range>
       <head>Fili Calot +2</head>
@@ -2133,7 +2147,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Stikini Ring +1</ring2>
       <back>Intarabus's Cape</back>
     </set>
-    <set name="midcast__Knight_s_Minne__">
+    <set name="Knight_s_Minne">
       <main>Carnwenhan</main>
       <range>info.ExtraSongInstrument</range>
       <head>Fili Calot +2</head>
@@ -2149,7 +2163,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Stikini Ring +1</ring2>
       <back>Intarabus's Cape</back>
     </set>
-    <set name="midcast__Sentinel_s_Scherzo__">
+    <set name="Sentinel_s_Scherzo">
       <range>Miracle Cheer</range>
       <feet>Fili Cothurnes +2</feet>
     </set>
@@ -2433,7 +2447,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Ilabrat Ring</ring1>
       <ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Aeolian_Edge">
+    <set name="Aeolian_Edge">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2441,14 +2455,14 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Black_Halo">
+    <set name="Black_Halo">
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Fotia Gorget</neck>
       <waist>Fotia Belt</waist>
       <ear1>Moonshade Earring</ear1><ear2>Ishvara Earring</ear2>
       <ring1>Sroda Ring</ring1>
       <ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Burning_Blade">
+    <set name="Burning_Blade">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2456,7 +2470,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Cataclysm">
+    <set name="Cataclysm">
       <range>Linos</range>
       <head>Pixie Hairpin +1</head>
       <body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
@@ -2465,7 +2479,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Cornelia's Ring</ring1>
       <ring2>Archon Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Cloudsplitter">
+    <set name="Cloudsplitter">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2473,7 +2487,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Cyclone">
+    <set name="Cyclone">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2481,7 +2495,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Dark_Harvest">
+    <set name="Dark_Harvest">
       <range>Linos</range>
       <head>Pixie Hairpin +1</head>
       <body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
@@ -2490,7 +2504,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Cornelia's Ring</ring1>
       <ring2>Archon Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Earth_Crusher">
+    <set name="Earth_Crusher">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2498,7 +2512,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Energy_Drain">
+    <set name="Energy_Drain">
       <range>Linos</range>
       <head>Pixie Hairpin +1</head>
       <body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
@@ -2507,7 +2521,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Cornelia's Ring</ring1>
       <ring2>Archon Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Energy_Steal">
+    <set name="Energy_Steal">
       <range>Linos</range>
       <head>Pixie Hairpin +1</head>
       <body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
@@ -2516,7 +2530,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Cornelia's Ring</ring1>
       <ring2>Archon Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Evisceration">
+    <set name="Evisceration">
       <range>Linos</range>
       <head>Blistering Sallet +1</head><body>Bihu Just. +4</body>
       <hands>Bunzi's Gloves</hands>
@@ -2530,7 +2544,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Ilabrat Ring</ring2>
       <back>Null Shawl</back>
     </set>
-    <set name="precast_WS_Evisceration_PDL">
+    <set name="Evisceration_PDL">
       <range>Linos</range>
       <head>Blistering Sallet +1</head><body>Bunzi's Robe</body>
       <hands>Bunzi's Gloves</hands>
@@ -2543,7 +2557,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Ilabrat Ring</ring2>
       <back>Null Shawl</back>
     </set>
-    <set name="precast_WS_Exenterator">
+    <set name="Exenterator">
       <range>Linos</range>
       <head>Blistering Sallet +1</head><body>Bihu Just. +4</body>
       <hands>Bunzi's Gloves</hands>
@@ -2557,7 +2571,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Ilabrat Ring</ring2>
       <back>Null Shawl</back>
     </set>
-    <set name="precast_WS_Exenterator_PDL">
+    <set name="Exenterator_PDL">
       <range>Linos</range>
       <head>Blistering Sallet +1</head><body>Bunzi's Robe</body>
       <hands>Bunzi's Gloves</hands>
@@ -2571,7 +2585,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring2>Ilabrat Ring</ring2>
       <back>Null Shawl</back>
     </set>
-    <set name="precast_WS_Flaming_Arrow">
+    <set name="Flaming_Arrow">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2579,7 +2593,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Flash_Nova">
+    <set name="Flash_Nova">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2587,7 +2601,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Freezebite">
+    <set name="Freezebite">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2595,7 +2609,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Frostbite">
+    <set name="Frostbite">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2603,7 +2617,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Gust_Slash">
+    <set name="Gust_Slash">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2611,7 +2625,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Herculean_Slash">
+    <set name="Herculean_Slash">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2619,7 +2633,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Infernal_Scythe">
+    <set name="Infernal_Scythe">
       <range>Linos</range>
       <head>Pixie Hairpin +1</head>
       <body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
@@ -2628,7 +2642,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Cornelia's Ring</ring1>
       <ring2>Archon Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Mordant_Rime">
+    <set name="Mordant_Rime">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Bihu Just. +4</body>
       <hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Bard's Charm +2</neck><waist>Sailfi Belt +1</waist>
@@ -2637,7 +2651,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Sroda Ring</ring1>
       <ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Mordant_Rime_PDL">
+    <set name="Mordant_Rime_PDL">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Bunzi's Robe</body>
       <hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Bard's Charm +2</neck><waist>Sailfi Belt +1</waist>
@@ -2646,14 +2660,14 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Sroda Ring</ring1>
       <ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Myrkr">
+    <set name="Myrkr">
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
       <ear1>Moonshade Earring</ear1><ear2>Friomisi Earring</ear2>
       <ring1>Cornelia's Ring</ring1>
       <ring2>Freke Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_PDL">
+    <set name="PDL">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Bunzi's Robe</body>
       <hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Bard's Charm +2</neck><waist>Kentarch Belt +1</waist>
@@ -2662,7 +2676,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Ilabrat Ring</ring1>
       <ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Primal_Rend">
+    <set name="Primal_Rend">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2670,7 +2684,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Raiden_Thrust">
+    <set name="Raiden_Thrust">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2678,7 +2692,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Red_Lotus_Blade">
+    <set name="Red_Lotus_Blade">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2686,7 +2700,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Rock_Crusher">
+    <set name="Rock_Crusher">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2694,7 +2708,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Sanguine_Blade">
+    <set name="Sanguine_Blade">
       <range>Linos</range>
       <head>Pixie Hairpin +1</head>
       <body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
@@ -2703,7 +2717,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Cornelia's Ring</ring1>
       <ring2>Archon Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Savage_Blade">
+    <set name="Savage_Blade">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Bihu Just. +4</body>
       <hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Rep. Plat. Medal</neck>
@@ -2713,7 +2727,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Sroda Ring</ring1>
       <ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Savage_Blade_PDL">
+    <set name="Savage_Blade_PDL">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Bunzi's Robe</body>
       <hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Bard's Charm +2</neck><waist>Sailfi Belt +1</waist>
@@ -2722,7 +2736,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Sroda Ring</ring1>
       <ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Seraph_Blade">
+    <set name="Seraph_Blade">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2730,7 +2744,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Seraph_Strike">
+    <set name="Seraph_Strike">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2738,7 +2752,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Shadow_of_Death">
+    <set name="Shadow_of_Death">
       <range>Linos</range>
       <head>Pixie Hairpin +1</head>
       <body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
@@ -2747,14 +2761,14 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Cornelia's Ring</ring1>
       <ring2>Archon Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Shattersoul">
+    <set name="Shattersoul">
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Fotia Gorget</neck>
       <waist>Fotia Belt</waist>
       <ear1>Brutal Earring</ear1>
       <ear2>Ishvara Earring</ear2>
       <ring1>Rufescent Ring</ring1>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Shell_Crusher">
+    <set name="Shell_Crusher">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Null Loop</neck>
       <waist>Null Belt</waist>
@@ -2762,7 +2776,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ring1>Metamor. Ring +1</ring1><ring2>Stikini Ring +1</ring2>
       <back>Null Shawl</back>
     </set>
-    <set name="precast_WS_Shining_Blade">
+    <set name="Shining_Blade">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2770,7 +2784,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Shining_Strike">
+    <set name="Shining_Strike">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2778,7 +2792,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Starburst">
+    <set name="Starburst">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2786,11 +2800,11 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_SubtleBlow">
+    <set name="SubtleBlow">
       <ring1>Chirich Ring +1</ring1>
       <ring2>Chirich Ring +1</ring2>
     </set>
-    <set name="precast_WS_Sunburst">
+    <set name="Sunburst">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2798,7 +2812,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       <ear2>Friomisi Earring</ear2>
       <ring1>Metamor. Ring +1</ring1><ring2>Cornelia's Ring</ring2>
       <back>Intarabus's Cape</back></set>
-    <set name="precast_WS_Thunder_Thrust">
+    <set name="Thunder_Thrust">
       <range>Linos</range>
       <head>Nyame Helm</head><body>Nyame Mail</body><hands>Nyame Gauntlets</hands><legs>Nyame Flanchard</legs><feet>Nyame Sollerets</feet><neck>Sibyl Scarf</neck>
       <waist>Orpheus's Sash</waist>
@@ -2846,7 +2860,6 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
 	</set>
 </sets>
   <inputcommands>
-
 <!-- ===== WEAPONS (edit here) ===== -->
   <cmd input="/weapons init">
   <setvar name="Weapons" value="None"/>
@@ -2964,6 +2977,31 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   </else>
   <doidlegear />
 </cmd>
+
+<cmd input="/warp">
+    <if p_subjob="BLM">
+        <if p_mp=">99">
+            <command>/ma Warp &lt;me&gt;</command>
+        </if>
+        <else>
+            <equip>
+                <ring1>Warp Ring</ring1>
+            </equip>
+            <gearlock length="15" />
+            <addtochat color="7">Using Warp Ring</addtochat>
+            <command delay="11000">/item "Warp Ring" &lt;me&gt;</command>
+        </else>
+    </if>
+    <else>
+        <equip>
+            <ring1>Warp Ring</ring1>
+        </equip>
+        <gearlock length="15" />
+        <addtochat color="7">Using Warp Ring</addtochat>
+        <command delay="11000">/item "Warp Ring" &lt;me&gt;</command>
+    </else>
+</cmd>
+
 <cmd input="/singstring ">
       <setvar name="StringVar" value="true"/>
       <command>/ma %args</command>
@@ -3056,6 +3094,14 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     <if p_status="idle"><equip set="idle" /></if>
 </cmd>
 <cmd input="/idlemode">
+  <!-- Reset other modes when cycling IdleMode (F12) -->
+  <setvar name="PhysicalDefenseMode" value="None" />
+  <setvar name="DefenseMode" value="None" />
+  <setvar name="MagicalDefenseMode" value="Normal" />
+  <setvar name="CraftingMode" value="Off" />
+  <setvar name="CraftQuality" value="Normal" />
+  <setvar name="Passive" value="Off" />
+
     <if advanced="$IdleMode=Normal">
         <setvar name="IdleMode" value="DT" />
         <addtochat color="159">[IdleMode] DT</addtochat>
@@ -3366,12 +3412,15 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
 <cmd input="/magicaldefensemode">
   <if advanced="$MagicalDefenseMode=Normal">
     <setvar name="MagicalDefenseMode" value="MDT" />
+    <setvar name="DefenseMode" value="Magical" />
     <addtochat color="159">[MagicalDefenseMode] MDT</addtochat>
   </if>
   <else>
     <setvar name="MagicalDefenseMode" value="Normal" />
+    <setvar name="DefenseMode" value="None" />
     <addtochat color="159">[MagicalDefenseMode] Normal</addtochat>
   </else>
+  <doidlegear />
 </cmd>
 <cmd input="/extrameleemode init">
   <setvar name="ExtraMeleeMode" value="Off" />
@@ -3818,6 +3867,21 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   <setvar name="Skillchainerws" value="%args" />
   <addtochat color="159">[Skillchainerws] %args</addtochat>
 </cmd>
+
+<cmd input="/killallmode init">
+  <setvar name="KillallMode" value="Off" />
+  <addtochat color="159">[KillallMode] Off</addtochat>
+</cmd>
+<cmd input="/killallmode">
+  <if advanced="$KillallMode=Off">
+    <setvar name="KillallMode" value="On" />
+    <addtochat color="36">[KillallMode] On KILLER machine ready .. attack on KILL ALL!</addtochat>
+  </if>
+  <else>
+    <setvar name="KillallMode" value="Off" />
+    <addtochat color="159">[KillallMode] Off</addtochat>
+  </else>
+</cmd>
 <cmd input="/autosong init">
   <setvar name="AutoSongMode" value="Off" />
   <setvar name="AutoSongLock" value="0" />
@@ -4134,14 +4198,105 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   <if advanced="$AutoSambaMode=Off">
     <setvar name="AutoSambaMode" value="Haste" />
     <addtochat color="159">[AutoSambaMode] Haste</addtochat>
+    <!-- Fire immediately when enabled (requires /DNC, engaged, and TP). -->
+    <if advanced="%p_subjob=dnc">
+      <if p_status="engaged">
+        <if advanced="%p_tp&gt;=100">
+          <if advanced="$AutoSambaLock=0">
+            <setvar name="AutoSambaLock" value="1" />
+            <!-- If already active, cancel then reapply to refresh duration. -->
+            <if buffactive="370">
+              <command>/cancel 370</command>
+              <command delay="600">/ja "Haste Samba" &lt;me&gt;</command>
+            </if>
+            <else>
+              <command>/ja "Haste Samba" &lt;me&gt;</command>
+            </else>
+            <command delay="5000">/asamba_rearm</command>
+          </if>
+          <else>
+            <addtochat color="159">[Samba] Locked - wait a moment.</addtochat>
+          </else>
+        </if>
+        <else>
+          <addtochat color="159">[Samba] Need 100+ TP.</addtochat>
+        </else>
+      </if>
+      <else>
+        <addtochat color="159">[Samba] Must be engaged.</addtochat>
+      </else>
+    </if>
+    <else>
+      <addtochat color="159">[Samba] Requires /DNC.</addtochat>
+    </else>
   </if>
   <elseif advanced="$AutoSambaMode=Haste">
     <setvar name="AutoSambaMode" value="Drain" />
     <addtochat color="159">[AutoSambaMode] Drain</addtochat>
+    <if advanced="%p_subjob=dnc">
+      <if p_status="engaged">
+        <if advanced="%p_tp&gt;=100">
+          <if advanced="$AutoSambaLock=0">
+            <setvar name="AutoSambaLock" value="1" />
+            <!-- If already active, cancel then reapply to refresh duration. -->
+            <if buffactive="368">
+              <command>/cancel 368</command>
+              <command delay="600">/ja "Drain Samba" &lt;me&gt;</command>
+            </if>
+            <else>
+              <command>/ja "Drain Samba" &lt;me&gt;</command>
+            </else>
+            <command delay="5000">/asamba_rearm</command>
+          </if>
+          <else>
+            <addtochat color="159">[Samba] Locked - wait a moment.</addtochat>
+          </else>
+        </if>
+        <else>
+          <addtochat color="159">[Samba] Need 100+ TP.</addtochat>
+        </else>
+      </if>
+      <else>
+        <addtochat color="159">[Samba] Must be engaged.</addtochat>
+      </else>
+    </if>
+    <else>
+      <addtochat color="159">[Samba] Requires /DNC.</addtochat>
+    </else>
   </elseif>
   <elseif advanced="$AutoSambaMode=Drain">
     <setvar name="AutoSambaMode" value="Aspir" />
     <addtochat color="159">[AutoSambaMode] Aspir</addtochat>
+    <if advanced="%p_subjob=dnc">
+      <if p_status="engaged">
+        <if advanced="%p_tp&gt;=100">
+          <if advanced="$AutoSambaLock=0">
+            <setvar name="AutoSambaLock" value="1" />
+            <!-- If already active, cancel then reapply to refresh duration. -->
+            <if buffactive="369">
+              <command>/cancel 369</command>
+              <command delay="600">/ja "Aspir Samba" &lt;me&gt;</command>
+            </if>
+            <else>
+              <command>/ja "Aspir Samba" &lt;me&gt;</command>
+            </else>
+            <command delay="5000">/asamba_rearm</command>
+          </if>
+          <else>
+            <addtochat color="159">[Samba] Locked - wait a moment.</addtochat>
+          </else>
+        </if>
+        <else>
+          <addtochat color="159">[Samba] Need 100+ TP.</addtochat>
+        </else>
+      </if>
+      <else>
+        <addtochat color="159">[Samba] Must be engaged.</addtochat>
+      </else>
+    </if>
+    <else>
+      <addtochat color="159">[Samba] Requires /DNC.</addtochat>
+    </else>
   </elseif>
   <else>
     <setvar name="AutoSambaMode" value="Off" />
@@ -4152,12 +4307,20 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     <!-- Safety: require /DNC and avoid re-firing while locked or while the buff is already up. -->
     <if advanced="$AutoSambaLock=0">
       <if advanced="%p_subjob=dnc">
+        <if notp_status="engaged">
+          <addtochat color="159">[Samba] Must be engaged.</addtochat>
+          <return />
+        </if>
+        <if advanced="%p_tp&lt;100">
+          <addtochat color="159">[Samba] Need 100+ TP.</addtochat>
+          <return />
+        </if>
         <if advanced="$AutoSambaMode=Haste">
-          <if notbuffactive="370">
-            <setvar name="AutoSambaLock" value="1" />
-            <command>/ja "Haste Samba" &lt;me&gt;</command>
-            <command delay="5000">/asamba_rearm</command>
-          </if>
+          <!-- If already active, do nothing (prevents auto-loop cancel/recast). -->
+          <if buffactive="370"><return /></if>
+          <setvar name="AutoSambaLock" value="1" />
+          <command>/ja "Haste Samba" &lt;me&gt;</command>
+          <command delay="5000">/asamba_rearm</command>
         </if>
         <elseif advanced="$AutoSambaMode=Drain">
           <if notbuffactive="368">
@@ -4165,6 +4328,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
             <command>/ja "Drain Samba" &lt;me&gt;</command>
             <command delay="5000">/asamba_rearm</command>
           </if>
+          <else><return /></else>
         </elseif>
         <elseif advanced="$AutoSambaMode=Aspir">
           <if notbuffactive="369">
@@ -4172,6 +4336,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
             <command>/ja "Aspir Samba" &lt;me&gt;</command>
             <command delay="5000">/asamba_rearm</command>
           </if>
+          <else><return /></else>
         </elseif>
         <else>
           <addtochat color="159">[AutoSambaMode] Off - use /autosambamode</addtochat>
@@ -4181,6 +4346,9 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
         <addtochat color="159">[Samba] Requires /DNC</addtochat>
       </else>
     </if>
+    <else>
+      <addtochat color="159">[Samba] Locked - wait a moment.</addtochat>
+    </else>
   </cmd>
   <cmd input="/asamba_rearm">
     <setvar name="AutoSambaLock" value="0" />
@@ -4311,6 +4479,11 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   <setvar name="ElementalMode" value="%args" />
   <addtochat color="159">[ElementalMode] %args</addtochat>
 </cmd>
+<!-- 
+<cmd input="/f8hello">
+  <addtochat color="159">Hello World!</addtochat>
+  <command>/echo Hello World!</command>
+</cmd> -->
 <cmd input="/castingmode init">
   <setvar name="CastingMode" value="Normal" />
   <addtochat color="159">[CastingMode] Normal</addtochat>
@@ -4396,6 +4569,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   </cmd>
   <!-- New: fallback to Ichi if Ni didn't give shadows -->
   <cmd input="/ashadow_fallback">
+    <if p_ismoving="True"><return /></if>
     <if advanced="$AutoShadowMode=On">
       <!-- If you have no shadows after attempting Ni -->
       <if notbuffactive="66">
@@ -4429,12 +4603,6 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
   </cmd>
 </inputcommands>
   <premagic>
-    <if eq_main="izhiikoh">
-      <equip lock="true">
-        <main>%eq_main</main>
-        <sub>%eq_sub</sub>
-      </equip>
-    </if>
     <if ad_type="BardSong">
       <equip set="SongPrecast"/>
       <if advanced="$CastingMode=AoE">
@@ -4460,8 +4628,6 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     </if>
     <if ad_element="Earth">
       <equip>
-        <main>Vishrava I</main>
-        <sub>Vivid Strap</sub>
       </equip>
     </if>
     <elseif ad_element="Fire">
@@ -4470,8 +4636,6 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
 		</elseif>
     <elseif ad_element="Light">
       <equip>
-        <main>Arka I</main>
-        <sub>Vivid Strap</sub>
       </equip>
     </elseif>
     <!-- Utsusemi: Ichi - Cancel shadows before casting -->
@@ -4519,7 +4683,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
         </equip>
         <if ad_name="Foe Lullaby*|Horde Lullaby*">
           <equip when="precast" set="StringAcc">
-            <hands>Brioso Cuffs +1</hands>
+            <hands>Brioso Cuffs +3</hands>
           </equip>
           <if advanced="$CastingMode=AoE"><equip><range>Daurdabla</range></equip></if>
           <return/>
@@ -4542,7 +4706,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
         </else>
         <if ad_name="Foe Lullaby*|Horde Lullaby*">
           <equip set="StringAcc">
-            <hands>Brioso Cuffs +1</hands>
+            <hands>Brioso Cuffs +3</hands>
           </equip>
           <if advanced="$CastingMode=AoE"><equip><range>Daurdabla</range></equip></if>
           <return/>
@@ -4561,22 +4725,22 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       </if>
       <if ad_name="Sentinel's Scherzo">
         <equip>
-          <feet>Aoidos' Cothrn. +2</feet>
+          <feet>Fili Cothrn. +2</feet>
         </equip>
       </if>
       <elseif ad_name="Advancing March|Victory March">
         <equip>
-          <hands>Ad. Mnchtte. +2</hands>
+          <hands>Fili Mnchtte. +2</hands>
         </equip>
       </elseif>
       <elseif ad_name="Sword Madrigal|Blade Madrigal">
         <equip>
-          <head>Aoidos' Calot +2</head>
+          <head>Fili Calot +2</head>
         </equip>
       </elseif>
       <elseif ad_name="Mage's Ballad*">
         <equip>
-          <legs>Aoidos' Rhing. +2</legs>
+          <legs>Fili Rhing. +2</legs>
         </equip>
       </elseif>
       <elseif ad_name="Sheepfoe Mambo*|Shining Fantasia|Herb Pastoral|Army's Paeon*|Valor Minuet*|Knight's Minne*">
@@ -4585,7 +4749,7 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
       </elseif>
       <elseif ad_name="Army's Paeon*">
         <equip>
-          <head>Brioso Roundlet +1</head>
+          <head>Brioso Roundlet +3</head>
         </equip>
       </elseif>
     </if>
@@ -4612,92 +4776,98 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
 	<equip set="precast_WS" />
 	<!-- WS Mode: PDL uses the PDL set if present; otherwise falls back to Match -->
 	<if advanced="$WeaponskillMode=PDL">
-		<equip set="precast_WS_PDL" />
-		<if ad_name="Aeolian Edge"><equip set="precast_WS_Aeolian_Edge" /></if>
-		<elseif ad_name="Black Halo"><equip set="precast_WS_Black_Halo" /></elseif>
-		<elseif ad_name="Burning Blade"><equip set="precast_WS_Burning_Blade" /></elseif>
-		<elseif ad_name="Cataclysm"><equip set="precast_WS_Cataclysm" /></elseif>
-		<elseif ad_name="Cloudsplitter"><equip set="precast_WS_Cloudsplitter" /></elseif>
-		<elseif ad_name="Cyclone"><equip set="precast_WS_Cyclone" /></elseif>
-		<elseif ad_name="Dark Harvest"><equip set="precast_WS_Dark_Harvest" /></elseif>
-		<elseif ad_name="Earth Crusher"><equip set="precast_WS_Earth_Crusher" /></elseif>
-		<elseif ad_name="Energy Drain"><equip set="precast_WS_Energy_Drain" /></elseif>
-		<elseif ad_name="Energy Steal"><equip set="precast_WS_Energy_Steal" /></elseif>
-		<elseif ad_name="Evisceration"><equip set="precast_WS_Evisceration_PDL" /></elseif>
-		<elseif ad_name="Exenterator"><equip set="precast_WS_Exenterator_PDL" /></elseif>
-		<elseif ad_name="Flaming Arrow"><equip set="precast_WS_Flaming_Arrow" /></elseif>
-		<elseif ad_name="Flash Nova"><equip set="precast_WS_Flash_Nova" /></elseif>
-		<elseif ad_name="Freezebite"><equip set="precast_WS_Freezebite" /></elseif>
-		<elseif ad_name="Frostbite"><equip set="precast_WS_Frostbite" /></elseif>
-		<elseif ad_name="Gust Slash"><equip set="precast_WS_Gust_Slash" /></elseif>
-		<elseif ad_name="Herculean Slash"><equip set="precast_WS_Herculean_Slash" /></elseif>
-		<elseif ad_name="Infernal Scythe"><equip set="precast_WS_Infernal_Scythe" /></elseif>
-		<elseif ad_name="Mordant Rime"><equip set="precast_WS_Mordant_Rime_PDL" /></elseif>
-		<elseif ad_name="Myrkr"><equip set="precast_WS_Myrkr" /></elseif>
-		<elseif ad_name="Primal Rend"><equip set="precast_WS_Primal_Rend" /></elseif>
-		<elseif ad_name="Raiden Thrust"><equip set="precast_WS_Raiden_Thrust" /></elseif>
-		<elseif ad_name="Red Lotus Blade"><equip set="precast_WS_Red_Lotus_Blade" /></elseif>
-		<elseif ad_name="Rock Crusher"><equip set="precast_WS_Rock_Crusher" /></elseif>
-		<elseif ad_name="Sanguine Blade"><equip set="precast_WS_Sanguine_Blade" /></elseif>
-		<elseif ad_name="Savage Blade"><equip set="precast_WS_Savage_Blade_PDL" /></elseif>
-		<elseif ad_name="Seraph Blade"><equip set="precast_WS_Seraph_Blade" /></elseif>
-		<elseif ad_name="Seraph Strike"><equip set="precast_WS_Seraph_Strike" /></elseif>
-		<elseif ad_name="Shadow of Death"><equip set="precast_WS_Shadow_of_Death" /></elseif>
-		<elseif ad_name="Shattersoul"><equip set="precast_WS_Shattersoul" /></elseif>
-		<elseif ad_name="Shell Crusher"><equip set="precast_WS_Shell_Crusher" /></elseif>
-		<elseif ad_name="Shining Blade"><equip set="precast_WS_Shining_Blade" /></elseif>
-		<elseif ad_name="Shining Strike"><equip set="precast_WS_Shining_Strike" /></elseif>
-		<elseif ad_name="Starburst"><equip set="precast_WS_Starburst" /></elseif>
-		<elseif ad_name="Sunburst"><equip set="precast_WS_Sunburst" /></elseif>
-		<elseif ad_name="Thunder Thrust"><equip set="precast_WS_Thunder_Thrust" /></elseif>
+		<equip set="PDL" />
+		<if ad_name="Aeolian Edge"><equip set="Aeolian_Edge" /></if>
+		<elseif ad_name="Black Halo"><equip set="Black_Halo" /></elseif>
+		<elseif ad_name="Burning Blade"><equip set="Burning_Blade" /></elseif>
+		<elseif ad_name="Cataclysm"><equip set="Cataclysm" /></elseif>
+		<elseif ad_name="Cloudsplitter"><equip set="Cloudsplitter" /></elseif>
+		<elseif ad_name="Cyclone"><equip set="Cyclone" /></elseif>
+		<elseif ad_name="Dark Harvest"><equip set="Dark_Harvest" /></elseif>
+		<elseif ad_name="Earth Crusher"><equip set="Earth_Crusher" /></elseif>
+		<elseif ad_name="Energy Drain"><equip set="Energy_Drain" /></elseif>
+		<elseif ad_name="Energy Steal"><equip set="Energy_Steal" /></elseif>
+		<elseif ad_name="Evisceration"><equip set="Evisceration_PDL" /></elseif>
+		<elseif ad_name="Exenterator"><equip set="Exenterator_PDL" /></elseif>
+		<elseif ad_name="Flaming Arrow"><equip set="Flaming_Arrow" /></elseif>
+		<elseif ad_name="Flash Nova"><equip set="Flash_Nova" /></elseif>
+		<elseif ad_name="Freezebite"><equip set="Freezebite" /></elseif>
+		<elseif ad_name="Frostbite"><equip set="Frostbite" /></elseif>
+		<elseif ad_name="Gust Slash"><equip set="Gust_Slash" /></elseif>
+		<elseif ad_name="Herculean Slash"><equip set="Herculean_Slash" /></elseif>
+		<elseif ad_name="Infernal Scythe"><equip set="Infernal_Scythe" /></elseif>
+		<elseif ad_name="Mordant Rime"><equip set="Mordant_Rime_PDL" /></elseif>
+		<elseif ad_name="Myrkr"><equip set="Myrkr" /></elseif>
+		<elseif ad_name="Primal Rend"><equip set="Primal_Rend" /></elseif>
+		<elseif ad_name="Raiden Thrust"><equip set="Raiden_Thrust" /></elseif>
+		<elseif ad_name="Red Lotus Blade"><equip set="Red_Lotus_Blade" /></elseif>
+		<elseif ad_name="Rock Crusher"><equip set="Rock_Crusher" /></elseif>
+		<elseif ad_name="Sanguine Blade"><equip set="Sanguine_Blade" /></elseif>
+		<elseif ad_name="Savage Blade"><equip set="Savage_Blade_PDL" /></elseif>
+		<elseif ad_name="Seraph Blade"><equip set="Seraph_Blade" /></elseif>
+		<elseif ad_name="Seraph Strike"><equip set="Seraph_Strike" /></elseif>
+		<elseif ad_name="Shadow of Death"><equip set="Shadow_of_Death" /></elseif>
+		<elseif ad_name="Shattersoul"><equip set="Shattersoul" /></elseif>
+		<elseif ad_name="Shell Crusher"><equip set="Shell_Crusher" /></elseif>
+		<elseif ad_name="Shining Blade"><equip set="Shining_Blade" /></elseif>
+		<elseif ad_name="Shining Strike"><equip set="Shining_Strike" /></elseif>
+		<elseif ad_name="Starburst"><equip set="Starburst" /></elseif>
+		<elseif ad_name="Sunburst"><equip set="Sunburst" /></elseif>
+		<elseif ad_name="Thunder Thrust"><equip set="Thunder_Thrust" /></elseif>
 		<else>
 			<!-- Nothing -->
 		</else>
 	</if>
 	<else>
-		<if ad_name="Aeolian Edge"><equip set="precast_WS_Aeolian_Edge" /></if>
-		<elseif ad_name="Black Halo"><equip set="precast_WS_Black_Halo" /></elseif>
-		<elseif ad_name="Burning Blade"><equip set="precast_WS_Burning_Blade" /></elseif>
-		<elseif ad_name="Cataclysm"><equip set="precast_WS_Cataclysm" /></elseif>
-		<elseif ad_name="Cloudsplitter"><equip set="precast_WS_Cloudsplitter" /></elseif>
-		<elseif ad_name="Cyclone"><equip set="precast_WS_Cyclone" /></elseif>
-		<elseif ad_name="Dark Harvest"><equip set="precast_WS_Dark_Harvest" /></elseif>
-		<elseif ad_name="Earth Crusher"><equip set="precast_WS_Earth_Crusher" /></elseif>
-		<elseif ad_name="Energy Drain"><equip set="precast_WS_Energy_Drain" /></elseif>
-		<elseif ad_name="Energy Steal"><equip set="precast_WS_Energy_Steal" /></elseif>
-		<elseif ad_name="Evisceration"><equip set="precast_WS_Evisceration" /></elseif>
-		<elseif ad_name="Exenterator"><equip set="precast_WS_Exenterator" /></elseif>
-		<elseif ad_name="Flaming Arrow"><equip set="precast_WS_Flaming_Arrow" /></elseif>
-		<elseif ad_name="Flash Nova"><equip set="precast_WS_Flash_Nova" /></elseif>
-		<elseif ad_name="Freezebite"><equip set="precast_WS_Freezebite" /></elseif>
-		<elseif ad_name="Frostbite"><equip set="precast_WS_Frostbite" /></elseif>
-		<elseif ad_name="Gust Slash"><equip set="precast_WS_Gust_Slash" /></elseif>
-		<elseif ad_name="Herculean Slash"><equip set="precast_WS_Herculean_Slash" /></elseif>
-		<elseif ad_name="Infernal Scythe"><equip set="precast_WS_Infernal_Scythe" /></elseif>
-		<elseif ad_name="Mordant Rime"><equip set="precast_WS_Mordant_Rime" /></elseif>
-		<elseif ad_name="Myrkr"><equip set="precast_WS_Myrkr" /></elseif>
-		<elseif ad_name="Primal Rend"><equip set="precast_WS_Primal_Rend" /></elseif>
-		<elseif ad_name="Raiden Thrust"><equip set="precast_WS_Raiden_Thrust" /></elseif>
-		<elseif ad_name="Red Lotus Blade"><equip set="precast_WS_Red_Lotus_Blade" /></elseif>
-		<elseif ad_name="Rock Crusher"><equip set="precast_WS_Rock_Crusher" /></elseif>
-		<elseif ad_name="Sanguine Blade"><equip set="precast_WS_Sanguine_Blade" /></elseif>
-		<elseif ad_name="Savage Blade"><equip set="precast_WS_Savage_Blade" /></elseif>
-		<elseif ad_name="Seraph Blade"><equip set="precast_WS_Seraph_Blade" /></elseif>
-		<elseif ad_name="Seraph Strike"><equip set="precast_WS_Seraph_Strike" /></elseif>
-		<elseif ad_name="Shadow of Death"><equip set="precast_WS_Shadow_of_Death" /></elseif>
-		<elseif ad_name="Shattersoul"><equip set="precast_WS_Shattersoul" /></elseif>
-		<elseif ad_name="Shell Crusher"><equip set="precast_WS_Shell_Crusher" /></elseif>
-		<elseif ad_name="Shining Blade"><equip set="precast_WS_Shining_Blade" /></elseif>
-		<elseif ad_name="Shining Strike"><equip set="precast_WS_Shining_Strike" /></elseif>
-		<elseif ad_name="Starburst"><equip set="precast_WS_Starburst" /></elseif>
-		<elseif ad_name="Sunburst"><equip set="precast_WS_Sunburst" /></elseif>
-		<elseif ad_name="Thunder Thrust"><equip set="precast_WS_Thunder_Thrust" /></elseif>
+		<if ad_name="Aeolian Edge"><equip set="Aeolian_Edge" /></if>
+		<elseif ad_name="Black Halo"><equip set="Black_Halo" /></elseif>
+		<elseif ad_name="Burning Blade"><equip set="Burning_Blade" /></elseif>
+		<elseif ad_name="Cataclysm"><equip set="Cataclysm" /></elseif>
+		<elseif ad_name="Cloudsplitter"><equip set="Cloudsplitter" /></elseif>
+		<elseif ad_name="Cyclone"><equip set="Cyclone" /></elseif>
+		<elseif ad_name="Dark Harvest"><equip set="Dark_Harvest" /></elseif>
+		<elseif ad_name="Earth Crusher"><equip set="Earth_Crusher" /></elseif>
+		<elseif ad_name="Energy Drain"><equip set="Energy_Drain" /></elseif>
+		<elseif ad_name="Energy Steal"><equip set="Energy_Steal" /></elseif>
+		<elseif ad_name="Evisceration"><equip set="Evisceration" /></elseif>
+		<elseif ad_name="Exenterator"><equip set="Exenterator" /></elseif>
+		<elseif ad_name="Flaming Arrow"><equip set="Flaming_Arrow" /></elseif>
+		<elseif ad_name="Flash Nova"><equip set="Flash_Nova" /></elseif>
+		<elseif ad_name="Freezebite"><equip set="Freezebite" /></elseif>
+		<elseif ad_name="Frostbite"><equip set="Frostbite" /></elseif>
+		<elseif ad_name="Gust Slash"><equip set="Gust_Slash" /></elseif>
+		<elseif ad_name="Herculean Slash"><equip set="Herculean_Slash" /></elseif>
+		<elseif ad_name="Infernal Scythe"><equip set="Infernal_Scythe" /></elseif>
+		<elseif ad_name="Mordant Rime"><equip set="Mordant_Rime" /></elseif>
+		<elseif ad_name="Myrkr"><equip set="Myrkr" /></elseif>
+		<elseif ad_name="Primal Rend"><equip set="Primal_Rend" /></elseif>
+		<elseif ad_name="Raiden Thrust"><equip set="Raiden_Thrust" /></elseif>
+		<elseif ad_name="Red Lotus Blade"><equip set="Red_Lotus_Blade" /></elseif>
+		<elseif ad_name="Rock Crusher"><equip set="Rock_Crusher" /></elseif>
+		<elseif ad_name="Sanguine Blade"><equip set="Sanguine_Blade" /></elseif>
+		<elseif ad_name="Savage Blade"><equip set="Savage_Blade" /></elseif>
+		<elseif ad_name="Seraph Blade"><equip set="Seraph_Blade" /></elseif>
+		<elseif ad_name="Seraph Strike"><equip set="Seraph_Strike" /></elseif>
+		<elseif ad_name="Shadow of Death"><equip set="Shadow_of_Death" /></elseif>
+		<elseif ad_name="Shattersoul"><equip set="Shattersoul" /></elseif>
+		<elseif ad_name="Shell Crusher"><equip set="Shell_Crusher" /></elseif>
+		<elseif ad_name="Shining Blade"><equip set="Shining_Blade" /></elseif>
+		<elseif ad_name="Shining Strike"><equip set="Shining_Strike" /></elseif>
+		<elseif ad_name="Starburst"><equip set="Starburst" /></elseif>
+		<elseif ad_name="Sunburst"><equip set="Sunburst" /></elseif>
+		<elseif ad_name="Thunder Thrust"><equip set="Thunder_Thrust" /></elseif>
 		<else>
 			<!-- Nothing -->
 		</else>
 	</else>
 	<!-- WS Mode: SubtleBlow overlay -->
-	<if advanced="$WeaponskillMode=SubtleBlow"><equip set="precast_WS_SubtleBlow" /></if>
+	<if advanced="$WeaponskillMode=SubtleBlow"><equip set="SubtleBlow" /></if>
+
+  <!-- Elemental/Magical WS: use Hachirin-no-obi when day or weather matches WS element -->
+  <if ad_name="Flash Nova|Sanguine Blade|Seraph Blade|Burning Blade|Red Lotus Blade|Shining Strike|Aeolian Edge|Gust Slash|Cyclone|Energy Steal|Energy Drain|Leaden Salute|Wildfire|Hot Shot|Flaming Arrow|Trueflight|Blade: Teki|Blade: To|Blade: Chi|Blade: Ei|Blade: Yu|Frostbite|Freezebite|Herculean Slash|Cloudsplitter|Primal Rend|Dark Harvest|Shadow of Death|Infernal Scythe|Thunder Thrust|Raiden Thrust|Tachi: Goten|Tachi: Kagero|Tachi: Jinpu|Tachi: Koki|Rock Crusher|Earth Crusher|Starburst|Sunburst|Omniscience|Garland of Bliss">
+    <if advanced="%ad_element=%e_dayelement"><equip><waist>Hachirin-no-obi</waist></equip></if>
+    <elseif advanced="%ad_element=%e_weatherelement"><equip><waist>Hachirin-no-obi</waist></equip></elseif>
+  </if>
 </weaponskill>
 <preranged>
     <equip>
@@ -5102,14 +5272,13 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
         <return />
       </elseif>
     </if>
-    <if eq_main="izhiikoh">
-      <equip lock="true">
-        <main>%eq_main</main>
-        <sub>%eq_sub</sub>
-      </equip>
+    <if advanced="$DefenseMode=Magical">
+      <if advanced="$MagicalDefenseMode=MDT">
+        <equip set="defense_MDT" />
+        <return />
+      </if>
     </if>
     <if p_status="resting"><equip set="Resting"/></if>
-    <elseif p_status="engaged" eq_main="izhiikoh"><equip set="Melee"/></elseif>
     <else>
       <equip set="Stand"/>
     </else>
@@ -5186,6 +5355,14 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     </if>
     <else>
       <if buffactive="Embrava"><setvar name="HasteTier" value="MaxHaste" /></if>
+
+      <!-- ===== DW HASTE TIERS (AutoHasteMode=On) =====
+           LowHaste  : (74% Dual Wield needed)
+           MidHaste  : (67% Dual Wield needed)
+           HighHaste : (56% Dual Wield needed)
+           MaxHaste  : (36% Dual Wield needed)
+           (/DNC gives 15 /NIN gives 25)
+      -->
       <elseif buffactive="Haste II">
         <if buffactive="March"><setvar name="HasteTier" value="MaxHaste" /></if>
         <else><setvar name="HasteTier" value="HighHaste" /></else>
@@ -5332,33 +5509,59 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     <elseif advanced="$CraftQuality=NQ"><equip lock="true" set="Craft_NQ" /></elseif>
   </if>
 </if>
-<!-- [KITE] Movement: if kite=On or the player is moving -->
-<if advanced="$kite=On"><equip set="Movement" /></if>
-<elseif p_ismoving="True"><equip set="Movement" /></elseif>
-<if eq_rring="Facility Ring"><equip lock="true"><rring>Facility Ring</rring></equip></if>
-<if eq_rring="Trizek Ring"><equip lock="true"><rring>Trizek Ring</rring></equip></if>
-<if eq_rring="Empress Band"><equip lock="true"><rring>Empress Band</rring></equip></if>
-<if eq_rring="Caliber Ring"><equip lock="true"><rring>Caliber Ring</rring></equip></if>
-<if eq_rring="Echad Ring"><equip lock="true"><rring>Echad Ring</rring></equip></if>
-<if eq_rring="Warp Ring"><equip lock="true"><rring>Warp Ring</rring></equip></if>
-<if eq_rring="Tavnazian Ring"><equip lock="true"><rring>Tavnazian Ring</rring></equip></if>
-<if eq_rring="Homing Ring"><equip lock="true"><rring>Homing Ring</rring></equip></if>
-<if eq_main="Warp Cudgel"><equip lock="true"><main>Warp Cudgel</main></equip></if>
-<if eq_rring="Dim. Ring (Holla)"><equip lock="true"><rring>Dim. Ring (Holla)</rring></equip></if>
-<if eq_rring="Dim. Ring (Dem)"><equip lock="true"><rring>Dim. Ring (Dem)</rring></equip></if>
-<if eq_rring="Dim. Ring (Mea)"><equip lock="true"><rring>Dim. Ring (Mea)</rring></equip></if>
-<if eq_rring="Emporox's Ring"><equip lock="true"><rring>Emporox's Ring</rring></equip></if>
-<if eq_back="Aptitude Mantle"><equip lock="true"><back>Aptitude Mantle</back></equip></if>
-<if eq_back="Nexus Cape"><equip lock="true"><back>Nexus Cape</back></equip></if>
-<if eq_ear2="Reraise Earring"><equip lock="true"><ear2>Reraise Earring</ear2></equip></if>
-<if eq_head="Reraise Hairpin"><equip lock="true"><head>Reraise Hairpin</head></equip></if>
-<if eq_neck="Airmid's Gorget"><equip lock="true"><neck>Airmid's Gorget</neck></equip></if>
+<!-- [KITE] Movement: apply Movement boots only while Idle (even if /kite is On). -->
+<if advanced="$kite=On">
+  <if p_status="idle"><equip set="Movement" /></if>
+</if>
+<elseif p_ismoving="True">
+  <if p_status="idle"><equip set="Movement" /></if>
+</elseif>
+<if eq_rring="Facility Ring"><equip><rring>Facility Ring</rring></equip><gearlock length="40" /><command delay="27000">/item "Facility Ring" &lt;me&gt;</command></if>
+<if eq_rring="Trizek Ring"><equip><rring>Trizek Ring</rring></equip><gearlock length="40" /><command delay="27000">/item "Trizek Ring" &lt;me&gt;</command></if>
+<if eq_rring="Empress Band"><equip><rring>Empress Band</rring></equip><gearlock length="40" /><command delay="27000">/item "Empress Band" &lt;me&gt;</command></if>
+<if eq_rring="Caliber Ring"><equip><rring>Caliber Ring</rring></equip><gearlock length="40" /><command delay="27000">/item "Caliber Ring" &lt;me&gt;</command></if>
+<if eq_rring="Echad Ring"><equip><rring>Echad Ring</rring></equip><gearlock length="40" /><command delay="27000">/item "Echad Ring" &lt;me&gt;</command></if>
+<if eq_rring="Warp Ring"><equip><rring>Warp Ring</rring></equip><gearlock length="40" /><command delay="8000">/item "Warp Ring" &lt;me&gt;</command></if>
+<if eq_rring="Tavnazian Ring"><equip><rring>Tavnazian Ring</rring></equip><gearlock length="40" /><command delay="11000">/item "Tavnazian Ring" &lt;me&gt;</command></if>
+<if eq_rring="Homing Ring"><equip><rring>Homing Ring</rring></equip><gearlock length="40" /><command delay="27000">/item "Homing Ring" &lt;me&gt;</command></if>
+<if eq_rring="Anniversary Ring"><equip><ring1>Anniversary Ring</ring1></equip><gearlock length="40" /><command delay="27000">/item "Anniversary Ring" &lt;me&gt;</command></if>
+<if eq_rring="Olduum Ring"><equip><ring1>Olduum Ring</ring1></equip><gearlock length="40" /><command delay="27000">/item "Olduum Ring" &lt;me&gt;</command></if>
+<if eq_rring="Return Ring"><equip><ring1>Return Ring</ring1></equip><gearlock length="40" /><command delay="27000">/item "Return Ring" &lt;me&gt;</command></if>
+
+<if eq_ear1="Signal Pearl"><equip><ear1>Signal Pearl</ear1></equip><gearlock length="40" /></if>
+<if eq_ear1="Tactics Pearl"><equip><ear1>Tactics Pearl</ear1></equip><gearlock length="40" /></if>
+
+<if eq_head="Reraise Hairpin"><equip><head>Reraise Hairpin</head></equip><gearlock length="40" /></if>
+
+<if eq_main="Warp Cudgel"><equip><main>Warp Cudgel</main></equip><gearlock length="40" /><command delay="8000">/item "Warp Cudgel" &lt;me&gt;</command></if>
+
+<if eq_rring="Dim. Ring (Holla)"><equip><rring>Dim. Ring (Holla)</rring></equip><gearlock length="40" /><command delay="11000">/item "Dim. Ring (Holla)" &lt;me&gt;</command></if>
+<if eq_rring="Dim. Ring (Dem)"><equip><rring>Dim. Ring (Dem)</rring></equip><gearlock length="40" /><command delay="11000">/item "Dim. Ring (Dem)" &lt;me&gt;</command></if>
+<if eq_rring="Dim. Ring (Mea)"><equip><rring>Dim. Ring (Mea)</rring></equip><gearlock length="40" /><command delay="11000">/item "Dim. Ring (Mea)" &lt;me&gt;</command></if>
+
+<if eq_rring="Emporox's Ring"><equip><rring>Emporox's Ring</rring></equip><gearlock length="40" /><command delay="27000">/item "Emporox's Ring" &lt;me&gt;</command></if>
+
+<if eq_back="Aptitude Mantle"><equip><back>Aptitude Mantle</back></equip><gearlock length="40" /></if>
+<if eq_back="Nexus Cape"><equip><back>Nexus Cape</back></equip><gearlock length="40" /></if>
+<if eq_ear2="Reraise Earring">
+  <equip><ear2>Reraise Earring</ear2></equip>
+  <gearlock length="40" />
+  <command delay="27000">/item "Reraise Earring" &lt;me&gt;</command>
+</if>
+
+<if eq_head="Reraise Hairpin">
+  <equip><head>Reraise Hairpin</head></equip>
+  <gearlock length="40" />
+  <command delay="27000">/item "Reraise Hairpin" &lt;me&gt;</command>
+</if>
+
+<if eq_neck="Airmid's Gorget"><equip><neck>Airmid's Gorget</neck></equip><gearlock length="40" /><command delay="27000">/item "Airmid's Gorget" &lt;me&gt;</command></if>
   <!-- ===== AUTO SONG SYSTEM ===== -->
   <!-- Logic similar to GearSwap's check_song: keeps March then Minuet on self -->
   <!-- Note: AshitaCast doesn't read recast/party, so we use a simple throttle + chained delays -->
   <if advanced="$AutoSongMode=On">
     <if p_status="idle">
-      <if p_ismoving="False">
+      <if p_ismoving="False"> 
         <if advanced="$AutoSongLock=0">
           <if buffactive="March"><!-- March is active --></if>
           <else>
@@ -5525,28 +5728,30 @@ They’ll never understandAnd once you do… it’ll be too late to pretend they
     <!-- [AUTOSHADOW] Utsusemi: Ichi & Ni -->
     <!-- Copy Image buff IDs: 66(1), 444(2), 445(3), 446(4+) -->
     <if advanced="$AutoShadowMode=On">
-      <if advanced="%p_subjob=nin">
-        <if advanced="$AutoShadowLock=0">
-          <!-- If you have 3+ shadows: do nothing -->
-          <if buffactive="445"><return /></if>
-          <elseif buffactive="446"><return /></elseif>
-          <!-- If you have 1-2 shadows: cast Utsusemi: Ni -->
-          <elseif buffactive="66">
-            <setvar name="AutoShadowLock" value="1" />
-            <command>/ma "Utsusemi: Ni" &lt;me&gt;</command>
-            <command delay="3000">/ashadow_rearm</command>
-          </elseif>
-          <elseif buffactive="444">
-            <setvar name="AutoShadowLock" value="1" />
-            <command>/ma "Utsusemi: Ni" &lt;me&gt;</command>
-            <command delay="3000">/ashadow_rearm</command>
-          </elseif>
-          <!-- If you have no shadows: cast Utsusemi: Ichi -->
-          <else>
-            <setvar name="AutoShadowLock" value="1" />
-            <command>/ma "Utsusemi: Ichi" &lt;me&gt;</command>
-            <command delay="3800">/ashadow_rearm</command>
-          </else>
+      <if p_ismoving="False">
+        <if advanced="%p_subjob=nin">
+          <if advanced="$AutoShadowLock=0">
+            <!-- If you have 3+ shadows: do nothing -->
+            <if buffactive="445"><return /></if>
+            <elseif buffactive="446"><return /></elseif>
+            <!-- If you have 1-2 shadows: cast Utsusemi: Ni -->
+            <elseif buffactive="66">
+              <setvar name="AutoShadowLock" value="1" />
+              <command>/ma "Utsusemi: Ni" &lt;me&gt;</command>
+              <command delay="3000">/ashadow_rearm</command>
+            </elseif>
+            <elseif buffactive="444">
+              <setvar name="AutoShadowLock" value="1" />
+              <command>/ma "Utsusemi: Ichi" &lt;me&gt;</command>
+              <command delay="3000">/ashadow_rearm</command>
+            </elseif>
+            <!-- If you have no shadows: cast Utsusemi: Ichi -->
+            <else>
+              <setvar name="AutoShadowLock" value="1" />
+              <command>/ma "Utsusemi: Ni" &lt;me&gt;</command>
+              <command delay="3800">/ashadow_rearm</command>
+            </else>
+          </if>
         </if>
       </if>
     </if>
