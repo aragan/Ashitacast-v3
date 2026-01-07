@@ -522,6 +522,7 @@ They’ll never understand And once you do… it’ll be too late to pretend the
     <!-- ===== Crafting / Gathering / Chocobo Sets ===== -->
     <set name="Craft_Base">
       <main>Caduceus</main>
+      <sub>Toreutic Escutcheon</sub>
       <ring1>Confectioner's Ring</ring1>
       <ring2>Orvail Ring +1</ring2>
       <body>Goldsmith's Smock</body>
@@ -543,49 +544,24 @@ They’ll never understand And once you do… it’ll be too late to pretend the
       <ring1>Goldsmith's Ring</ring1>
     </set>
     <set name="Craft_Alchemy" baseset="Craft_Base">
-      <head>Midra's Helm +1</head>
-      <sub>Brewer's Escutcheon</sub>
-      <neck>Alchemst. Torque</neck>
-      <body>Alchemist's Smock</body>
     </set>
     <set name="Craft_Alchemy_NQ" baseset="Craft_Alchemy">
-      <ring1>Alchemist's Ring</ring1>
     </set>
     <set name="Craft_Leathercraft" baseset="Craft_Base">
-      <head>Midra's Helm +1</head>
-      <sub>Beveler's Escutcheon</sub>
-      <neck>Tanner's Torque</neck>
-      <body>Tanner's Smock</body>
     </set>
     <set name="Craft_Leathercraft_NQ" baseset="Craft_Leathercraft">
-      <ring1>Tanner's Ring</ring1>
     </set>
     <set name="Craft_Bonecraft" baseset="Craft_Base">
-      <head>Midra's Helm +1</head>
-      <sub>Ossifier's Escutcheon</sub>
-      <neck>Boneworker's Torque</neck>
-      <body>Bonewrk. Smock</body>
     </set>
     <set name="Craft_Bonecraft_NQ" baseset="Craft_Bonecraft">
-      <ring1>Bonecrafter's Ring</ring1>
     </set>
     <set name="Craft_Clothcraft" baseset="Craft_Base">
-      <head>Midra's Helm +1</head>
-      <sub>Plaiter's Escutcheon</sub>
-      <neck>Weaver's Torque</neck>
-      <body>Weaver's Smock</body>
     </set>
     <set name="Craft_Clothcraft_NQ" baseset="Craft_Clothcraft">
-      <ring1>Tailor's Ring</ring1>
     </set>
     <set name="Craft_Woodworking" baseset="Craft_Base">
-      <head>Midra's Helm +1</head>
-      <sub>Joiner's Escutcheon</sub>
-      <neck>Carver's Torque</neck>
-      <body>Carpenter's Smock</body>
     </set>
     <set name="Craft_Woodworking_NQ" baseset="Craft_Woodworking">
-      <ring1>Carpenter's Ring</ring1>
     </set>
     <set name="Craft_Smithing" baseset="Craft_Base">
       <head>Shaded Specs.</head>
@@ -601,6 +577,7 @@ They’ll never understand And once you do… it’ll be too late to pretend the
       <head>Shaded Specs.</head>
       <hands>Smithy's Mitts</hands>
       <sub>Toreutic Escutcheon</sub>
+        <sub>Toreutic Escutcheon</sub>
       <neck>Goldsm. Torque</neck>
     </set>
     <set name="Craft_Cooking_NQ" baseset="Craft_Cooking">
