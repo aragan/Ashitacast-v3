@@ -1,5 +1,7 @@
+  ![blood book1113](https://github.com/user-attachments/assets/9df68d28-a0e1-48da-b6bb-a264b6a8b0e2)
+
  Aragan Ashitcastv3 xml — The Ultimate Build
-  
+
 version transformers coming
 
 This isn’t just an “update.”
@@ -27,4 +29,5 @@ No equal, no substitute
 
 Many XML builds look similar, but collapse under real use: missing logic, weak structure, conflicts, spam loops.
 This build is designed as a complete package:
+
 power + completeness + stability + scalability.
